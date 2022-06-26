@@ -1,9 +1,4 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  images: {
-    loader: "imgix",
-    path: "./public",
-  },
-};
+const nextConfig = {};
 
 module.exports = nextConfig;
