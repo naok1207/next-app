@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import clamp from 'lodash-es/clamp'
+    // @ts-ignore
 import swap from 'lodash-move'
 import { useGesture } from 'react-with-gesture'
 import { useSprings, animated, interpolate } from 'react-spring'
@@ -36,6 +37,7 @@ const DraggableList = ({ items }: Props) => {
   const bind = useGesture(({ args: [originalIndex], down, delta: [, y] }) => {
     const curIndex = order.current.indexOf(originalIndex)
     const curRow = clamp(Math.round((curIndex * 100 + y) / 100), 0, items.length - 1)
+    // @ts-ignore
     const newOrder = swap(order.current, curIndex, curRow)
     setSprings(fn(newOrder, down, originalIndex, curIndex, y))
     if (!down) order.current = newOrder
